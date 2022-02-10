@@ -1,0 +1,20 @@
+version: '3'
+services:
+    geth-node1:
+        image: ethereum/client-go
+        container_name: geth-node1
+        ports:
+            - 8545:8545
+        volumes:
+            - ./data/node1:/data/node
+            - ./entrypoint.sh:/data/entrypoint.sh
+        entrypoint: /data/entrypoint.sh
+    geth-node2:
+        image: ethereum/client-go
+        container_name: geth-node2
+        ports:
+            - 9545:8545
+        volumes:
+            - ./data/node2:/data/node
+            - ./entrypoint.sh:/data/entrypoint.sh
+        entrypoint: /data/entrypoint.sh
