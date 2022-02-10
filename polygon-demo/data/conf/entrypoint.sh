@@ -6,4 +6,4 @@ apk add -U tzdata
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 apk del tzdata
 
-polygon-sdk server --config /data/conf/node-config.json
+polygon-edge server --config /data/conf/node-config.json

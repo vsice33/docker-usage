@@ -1,7 +1,7 @@
 version: '3'
 services:
     polygon-node1:
-        image: 0xpolygon/polygon-sdk
+        image: 0xpolygon/polygon-edge
         container_name: polygon-node1
         ports:
             - 9632:9632
@@ -11,7 +11,7 @@ services:
             - ./data/conf:/data/conf
         entrypoint: /data/conf/entrypoint.sh
     polygon-node2:
-        image: 0xpolygon/polygon-sdk
+        image: 0xpolygon/polygon-edge
         container_name: polygon-node2
         ports:
             - 9633:9632
@@ -21,7 +21,7 @@ services:
             - ./data/conf:/data/conf
         entrypoint: /data/conf/entrypoint.sh
     polygon-node3:
-        image: 0xpolygon/polygon-sdk
+        image: 0xpolygon/polygon-edge
         container_name: polygon-node3
         ports:
             - 9634:9632
@@ -31,7 +31,7 @@ services:
             - ./data/conf:/data/conf
         entrypoint: /data/conf/entrypoint.sh
     polygon-node4:
-        image: 0xpolygon/polygon-sdk
+        image: 0xpolygon/polygon-edge
         container_name: polygon-node4
         ports:
             - 9635:9632

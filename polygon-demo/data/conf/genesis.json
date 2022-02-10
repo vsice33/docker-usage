@@ -1,5 +1,5 @@
 {
-    "name": "example",
+    "name": "polygon-edge",
     "genesis": {
         "nonce": "0x0000000000000000",
         "timestamp": "0x0",
@@ -40,7 +40,7 @@
         "blockGasTarget": 0
     },
     "bootnodes": [
-        "/ip4/polygon-node1/tcp/1478/p2p/16Uiu2HAm6SbUBzao612kd2kkr6DotFD3y94XvMNYA9V46nb3k6kn",
-        "/ip4/polygon-node2/tcp/1478/p2p/16Uiu2HAmN8mJE8X5XAoTKa1kRacMJitKSx59pnntZ3tvnjSpVjvC"
+        "/ip4/polygon-node1/tcp/1478/p2p/16Uiu2HAm96NQJqF2CGWSAxG6zJfv99hBW5psDc53gMYbQrrT5kuu",
+        "/ip4/polygon-node2/tcp/1478/p2p/16Uiu2HAkxp53dqh9EPeXygJU75KmhZwyh4DCii5c7GFRRvHLtTmf"
     ]
 }
