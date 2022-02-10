@@ -1,0 +1,29 @@
+{
+    "chain_config": "/data/conf/genesis.json",
+    "secrets_config": "",
+    "data_dir": "/data/test-chain",
+    "block_gas_target": "8000000",
+    "grpc_addr": "0.0.0.0:9632",
+    "jsonrpc_addr": "0.0.0.0:8545",
+    "telemetry": {
+        "prometheus_addr": ""
+    },
+    "network": {
+        "no_discover": false,
+        "libp2p_addr": "0.0.0.0:1478",
+        "nat_addr": "",
+        "dns_addr": "",
+        "max_peers": 20
+    },
+    "txpool": {
+        "locals": "",
+        "no_locals": "",
+        "price_limit": 1,
+        "max_slots": 4096
+    },
+    "seal": false,
+    "log_level": "INFO",
+    "dev_mode": true,
+    "dev_internal": 0,
+    "join_addr": ""
+}

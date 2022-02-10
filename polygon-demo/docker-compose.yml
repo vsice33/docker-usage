@@ -1,0 +1,42 @@
+version: '3'
+services:
+    polygon-node1:
+        image: 0xpolygon/polygon-sdk
+        container_name: polygon-node1
+        ports:
+            - 9632:9632
+            - 8545:8545
+        volumes:
+            - ./data/test-chain-1:/data/test-chain
+            - ./data/conf:/data/conf
+        entrypoint: /data/conf/entrypoint.sh
+    polygon-node2:
+        image: 0xpolygon/polygon-sdk
+        container_name: polygon-node2
+        ports:
+            - 9633:9632
+            - 8546:8545
+        volumes:
+            - ./data/test-chain-2:/data/test-chain
+            - ./data/conf:/data/conf
+        entrypoint: /data/conf/entrypoint.sh
+    polygon-node3:
+        image: 0xpolygon/polygon-sdk
+        container_name: polygon-node3
+        ports:
+            - 9634:9632
+            - 8547:8545
+        volumes:
+            - ./data/test-chain-3:/data/test-chain
+            - ./data/conf:/data/conf
+        entrypoint: /data/conf/entrypoint.sh
+    polygon-node4:
+        image: 0xpolygon/polygon-sdk
+        container_name: polygon-node4
+        ports:
+            - 9635:9632
+            - 8548:8545
+        volumes:
+            - ./data/test-chain-4:/data/test-chain
+            - ./data/conf:/data/conf
+        entrypoint: /data/conf/entrypoint.sh
