@@ -53,3 +53,29 @@ $ vim ./data/conf/genesis.json
 ```bash
 $ docker-compose up -d
 ```
+
+# 测试
+## 1. 转换abi文件
+```bash
+$ docker run --rm -it -v `pwd`:/go -w /go ethereum/client-go:alltools-latest \
+abigen -abi contract/abi/01-calldemo.abi -type calldemo -pkg main -out src/calldemo.go
+```
+
+## 2. 部署合约
+在"remix"测试节点中部署合约，记录合约地址，如"0x101bb6d1d28154d88AE74fB7FA696Fe7f03feAb6"
+
+## 3. 编译代码
+填写部署后的合约地址到"main.go"中，编译代码
+```bash
+$ vim src/main.go
+...
+common.HexToAddress("0x101bb6d1d28154d88AE74fB7FA696Fe7f03feAb6")
+...
+$ docker run --rm -it -v `pwd`:/go -w /go/src golang:latest go mod init calldemo
+$ docker run --rm -it -v `pwd`:/go -w /go/src golang:latest go build
+```
+
+## 4. 运行
+```bash
+$ docker run --rm -it -v `pwd`:/go -w /go/src golang:latest ./calldemo
+```
