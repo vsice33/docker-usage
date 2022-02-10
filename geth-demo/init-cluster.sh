@@ -6,8 +6,8 @@ docker run --rm -it -v `pwd`/data/node1:/root/private-chain-node ethereum/client
 docker run --rm -it -v `pwd`/data/node2:/root/private-chain-node ethereum/client-go account new --datadir="/data/node"
 
 # 初始化数据库
-docker run --rm -v `pwd`/data/node1:/data/node -v `pwd`/genesis.json:/data/genesis.json \
-ethereum/client-go init --datadir "/data/node" /data/genesis.json
+docker run --rm -v `pwd`/data/node1:/data/node -v `pwd`/data/conf/genesis.json:/data/conf/genesis.json \
+ethereum/client-go init --datadir "/data/node" /data/conf/genesis.json
 
-docker run --rm -v `pwd`/data/node2:/data/node -v `pwd`/genesis.json:/data/genesis.json \
-ethereum/client-go init --datadir "/data/node" /data/genesis.json
+docker run --rm -v `pwd`/data/node2:/data/node -v `pwd`/data/conf/genesis.json:/data/conf/genesis.json \
+ethereum/client-go init --datadir "/data/node" /data/conf/genesis.json

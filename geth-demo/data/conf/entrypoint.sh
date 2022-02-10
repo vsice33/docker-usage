@@ -6,7 +6,7 @@ apk add -U tzdata
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 apk del tzdata
 
-geth --nousb \
+geth \
 --datadir /data/node \
 --networkid 18 \
 --http \
