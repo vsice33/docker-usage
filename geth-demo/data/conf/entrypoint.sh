@@ -8,7 +8,7 @@ apk del tzdata
 
 geth \
 --datadir /data/node \
---networkid 18 \
+--networkid 100 \
 --http \
 --http.addr "0.0.0.0" \
 --http.vhosts "*" \

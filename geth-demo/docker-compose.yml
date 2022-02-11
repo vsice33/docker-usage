@@ -6,7 +6,7 @@ services:
         ports:
             - 8545:8545
         volumes:
-            - ./data/node1:/data/node
+            - ./data/node-1:/data/node
             - ./data/conf/entrypoint.sh:/data/entrypoint.sh
         entrypoint: /data/entrypoint.sh
     geth-node2:
@@ -15,6 +15,6 @@ services:
         ports:
             - 9545:8545
         volumes:
-            - ./data/node2:/data/node
+            - ./data/node-2:/data/node
             - ./data/conf/entrypoint.sh:/data/entrypoint.sh
         entrypoint: /data/entrypoint.sh
