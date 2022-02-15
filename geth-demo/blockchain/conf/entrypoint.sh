@@ -10,13 +10,17 @@ apk del tzdata
 geth \
 --datadir /data/node \
 --networkid 100 \
+--nousb \
+--syncmode "full" \
 --ipcdisable \
 --pcscdpath "" \
 --mine \
 --miner.threads 1 \
+--miner.gasprice 0 \
+--miner.etherbase 0x0000000000000000000000000000000000000000 \
 --http \
 --http.addr "0.0.0.0" \
 --http.vhosts "*" \
---http.api "eth,net,web3,txpool" \
+--http.api "eth,miner,net,txpool,web3" \
 --http.corsdomain "*" \
 console
