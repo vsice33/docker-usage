@@ -23,7 +23,7 @@ RUN docker-php-ext-install -j$(nproc) iconv
 RUN apt-get install -y libonig-dev && docker-php-ext-install -j$(nproc) mbstring
 RUN pecl install redis && docker-php-ext-enable redis
 RUN pecl install mongodb && docker-php-ext-enable mongodb
-RUN pecl install swoole && docker-php-ext-enable swoole
+RUN apt-get install -y zlib1g-dev && pecl install swoole && docker-php-ext-enable swoole
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && ln -s $(composer config --global home) /root/composer
