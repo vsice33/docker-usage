@@ -9,16 +9,17 @@ $ docker pull ethereum/client-go:stable
 ## 2. 创建账户
 - a. 创建相关文件夹
 ```bash
-$ mkdir -p data/node-1
-$ mkdir -p data/node-2
+$ mkdir -p blockchain/node-1
+$ mkdir -p blockchain/node-2
 ```
 
 - b. 执行"init-cluster.sh"中的以下命令，并记录下"Public address"
 ```bash
-$ docker run --rm -it -v `pwd`/data/node-1:/data/node ethereum/client-go:stable account new --datadir="/data/node"
+$ cd blockchain
+$ docker run --rm -it -v `pwd`/node-1:/data/node ethereum/client-go:stable account new --datadir="/data/node"
 # Public address of the key:   0x45200a99e0e290e0f276E8EBC77b66D7D017a7c9
 # Path of the secret key file: /data/node/keystore/UTC--2022-02-11T07-43-09.676650184Z--45200a99e0e290e0f276e8ebc77b66d7d017a7c9
-$ docker run --rm -it -v `pwd`/data/node-2:/data/node ethereum/client-go:stable account new --datadir="/data/node"
+$ docker run --rm -it -v `pwd`/node-2:/data/node ethereum/client-go:stable account new --datadir="/data/node"
 # Public address of the key:   0xF923c636De5F76Bb40294bb17A2392E3FD65D7a3
 # Path of the secret key file: /data/node/keystore/UTC--2022-02-11T07-43-39.349227128Z--f923c636de5f76bb40294bb17a2392e3fd65d7a3
 ```
@@ -28,14 +29,16 @@ $ docker run --rm -it -v `pwd`/data/node-2:/data/node ethereum/client-go:stable 
 
 - d. 初始化数据库
 ```bash
-$ docker run --rm -v `pwd`/data/node-1:/data/node -v `pwd`/data/conf/genesis.json:/data/conf/genesis.json \
+$ cd blockchain
+$ docker run --rm -v `pwd`/node-1:/data/node -v `pwd`/conf/genesis.json:/data/conf/genesis.json \
 ethereum/client-go:stable init --datadir "/data/node" /data/conf/genesis.json
-$ docker run --rm -v `pwd`/data/node-2:/data/node -v `pwd`/data/conf/genesis.json:/data/conf/genesis.json \
+$ docker run --rm -v `pwd`/node-2:/data/node -v `pwd`/conf/genesis.json:/data/conf/genesis.json \
 ethereum/client-go:stable init --datadir "/data/node" /data/conf/genesis.json
 ```
 
 # 启动集群
 ```bash
+$ cd blockchain
 $ docker-compose up -d
 ```
 

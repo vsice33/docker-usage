@@ -6,8 +6,8 @@ services:
         ports:
             - 8545:8545
         volumes:
-            - ./data/node-1:/data/node
-            - ./data/conf:/data/conf
+            - ./node-1:/data/node
+            - ./conf:/data/conf
         entrypoint: /data/conf/entrypoint.sh
     geth-node2:
         image: ethereum/client-go:stable
@@ -15,6 +15,6 @@ services:
         ports:
             - 9545:8545
         volumes:
-            - ./data/node-2:/data/node
-            - ./data/conf:/data/conf
+            - ./node-2:/data/node
+            - ./conf:/data/conf
         entrypoint: /data/conf/entrypoint.sh
