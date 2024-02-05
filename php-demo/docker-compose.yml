@@ -20,17 +20,18 @@ services:
         environment:
             TZ: "Asia/Shanghai"
 
-    # db:
-    #     image: mariadb:10.7.1
-    #     container_name: db
-    #     restart: always
-    #     ports:
-    #         - "3306:3306"
-    #     volumes:
-    #         - ./mysql/conf:/etc/mysql/conf.d
-    #         - ./mysql/data:/var/lib/mysql
-    #     environment:
-    #         MYSQL_ROOT_PASSWORD: "root password"
-    #         MYSQL_DATABASE: "dbname"
-    #         MYSQL_USER: "username"
-    #         MYSQL_PASSWORD: "user password"
+    db:
+        image: docker.io/bitnami/mariadb:latest
+        container_name: db
+        restart: always
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./mariadb/conf/my.cnf:/opt/bitnami/mariadb/conf/my.cnf:ro
+            - ./mariadb/data:/bitnami/mariadb/data
+        environment:
+            TZ: "Asia/Shanghai"
+            MARIADB_ROOT_PASSWORD: "root password"
+    #        MARIADB_DATABASE: "dbname"
+    #        MARIADB_USER: "username"
+    #        MARIADB_PASSWORD: "user password"
