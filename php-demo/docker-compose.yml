@@ -1,22 +1,26 @@
-version: '3'
+version: "3"
 services:
     nginx:
         image: docker.io/bitnami/nginx:latest
+        container_name: nginx
         ports:
-            - '80:80'
-            - '443:443'
+            - "80:80"
+            - "443:443"
         volumes:
             - .:/app
-            - ./docker/app.conf:/opt/bitnami/nginx/conf/server_blocks/app.conf
+            - ./nginx/server_blocks:/opt/bitnami/nginx/conf/server_blocks
         environment:
             TZ: "Asia/Shanghai"
         depends_on:
-           - "phpfpm"
+            - "phpfpm"
     phpfpm:
-        image: docker.io/bitnami/php-fpm:latest
+        build: ./phpfpm
+        image: myapp/phpfpm
+        container_name: phpfpm
         volumes:
             - .:/app
-            - ./docker/custom.ini:/opt/bitnami/php/etc/conf.d/custom.ini
+            - ./phpfpm/etc/conf.d/custom.ini:/opt/bitnami/php/etc/conf.d/custom.ini
+            - ./phpfpm/etc/apt/sources.list:/etc/apt/sources.list
         environment:
             TZ: "Asia/Shanghai"
 
@@ -32,6 +36,6 @@ services:
         environment:
             TZ: "Asia/Shanghai"
             MARIADB_ROOT_PASSWORD: "root password"
-    #        MARIADB_DATABASE: "dbname"
-    #        MARIADB_USER: "username"
-    #        MARIADB_PASSWORD: "user password"
+        #   MARIADB_DATABASE: "dbname"
+        #   MARIADB_USER: "username"
+        #   MARIADB_PASSWORD: "user password"
