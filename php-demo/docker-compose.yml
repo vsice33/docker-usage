@@ -15,14 +15,14 @@ services:
             - "phpfpm"
     phpfpm:
         build: ./phpfpm
-        image: myapp/phpfpm
+        image: myapp/phpfpm:7.4
         container_name: phpfpm
         volumes:
             - .:/app
             - ./phpfpm/etc/conf.d/custom.ini:/opt/bitnami/php/etc/conf.d/custom.ini
+        working_dir: /app
         environment:
             TZ: "Asia/Shanghai"
-
     db:
         image: docker.io/bitnami/mariadb:latest
         container_name: db
