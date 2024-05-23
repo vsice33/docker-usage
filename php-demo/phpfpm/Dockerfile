@@ -9,6 +9,6 @@ RUN apt-get update
 RUN apt-get install -y php7.4-dev
 RUN apt-get install -y php7.4-mysql php7.4-redis
 RUN pecl channel-update pecl.php.net
-RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
 RUN pecl install yaconf
 RUN pecl install SeasLog
+RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
