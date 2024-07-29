@@ -1,4 +1,3 @@
-version: '3'
 services:
     geth-node1:
         image: ethereum/client-go:stable

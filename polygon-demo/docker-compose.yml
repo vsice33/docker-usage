@@ -1,4 +1,3 @@
-version: '3'
 services:
     polygon-node1:
         image: 0xpolygon/polygon-edge
